@@ -8,17 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/produkty")
-public class ShowProductsController extends HttpServlet {
+@WebServlet("/produkt")
+public class ShowProductController extends HttpServlet {
     private final ProductService productService = new ProductServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("products", productService.getProducts());
-        req.getRequestDispatcher("/WEB-INF/view/products.jsp").forward(req,resp);
-
+        req.setAttribute("product", productService.getProduct(Long.parseLong(req.getParameter("id"))));
+        req.getRequestDispatcher("/WEB-INF/view/product.jsp").forward(req,resp);
     }
 }
