@@ -13,7 +13,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         String username = request.getParameter("username");
         String password = request.getParameter("pass");
         User user = userService.getUser(username);
-        if (user != null &&user.getPassword().equals(password)){
+        if (user != null && user.getPassword().equals(password)) {
             request.getSession().setAttribute("isAuthenticated", true);
             return true;
         }
@@ -23,7 +23,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public boolean isAuthenticated(HttpServletRequest req) {
-        if(req.getSession().getAttribute("isAuthenticated") != null){
+        if (req.getSession().getAttribute("isAuthenticated") != null) {
             return (boolean) req.getSession().getAttribute("isAuthenticated");
         }
         return false;

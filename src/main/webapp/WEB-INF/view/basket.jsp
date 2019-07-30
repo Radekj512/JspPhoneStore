@@ -14,7 +14,9 @@
 
     <c:choose>
         <c:when test="${empty phones}">
+        <div class="alert alert-info" role="alert">
             <h1>Koszyk jest pusty</h1>
+        </div>
         </c:when>
         <c:otherwise>
             <c:forEach items="${phones}" var="phone">

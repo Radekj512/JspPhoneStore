@@ -3,12 +3,14 @@ package pl.sda.dao;
 import pl.sda.entity.UserEntity;
 import pl.sda.model.User;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 public class UserDaoImpl implements UserDao {
-    private List<UserEntity> users = loadMockData();
+    private ArrayList<UserEntity> users = loadMockData();
 
     @Override
     public void saveUser(UserEntity user) {
@@ -20,8 +22,8 @@ public class UserDaoImpl implements UserDao {
         return users.stream().filter(u -> u.getLogin().equals(login)).findFirst();
     }
 
-    private List<UserEntity> loadMockData() {
-
+    private ArrayList<UserEntity> loadMockData() {
+        ArrayList<UserEntity> users = new ArrayList<>();
         UserEntity u1 = UserEntity.builder()
                 .email("kowalski@gmail.com")
                 .login("kowalski")
@@ -29,7 +31,9 @@ public class UserDaoImpl implements UserDao {
                 .password("kowal1")
                 .surname("Kowalski")
                 .build();
-        return Arrays.asList(u1);
+
+        users.add(u1);
+        return users;
     }
 
 }
