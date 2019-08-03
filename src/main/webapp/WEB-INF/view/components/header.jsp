@@ -10,6 +10,7 @@
             <p class="navbar-text"><a href="${pageContext.request.contextPath}/basket" class="navbar-link">Koszyk</a></p>
             <c:choose>
                 <c:when test="${isLogin}">
+                    <p class="navbar-text"><a href="${pageContext.request.contextPath}/changePass" class="navbar-link">Zmień hasło</a></p>
                     <p class="navbar-text"><a href="${pageContext.request.contextPath}/logOut" class="navbar-link">Wyloguj się</a></p>
                 </c:when>
                 <c:otherwise>

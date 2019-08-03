@@ -11,6 +11,13 @@
 <%@include file="components/header.jsp" %>
 <div class="container">
     <div class="row">
+        <c:choose>
+            <c:when test="${wrongLogin}">
+                <div class="alert alert-danger">
+                    <h2>Podano zły login lub hasło</h2>
+                </div>
+            </c:when>
+        </c:choose>
         <form class="form-horizontal" action="${pageContext.request.contextPath}/login" method="post">
             <div class="form-group">
                 <label for="username" class="col-sm-2 control-label">Nazwa użytkownika</label>

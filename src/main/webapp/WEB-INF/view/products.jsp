@@ -12,7 +12,7 @@
 <%@include file="components/header.jsp" %>
 
 <div class="container-fluid">
-    <div class="col-sm-2">Tu bedzie filtr</div>
+    <div class="col-sm-2"><%@include file="components/productsFilter.jsp" %></div>
     <div class="col-sm-10">
         <c:forEach items="${products}" var="product">
             <div class="row">

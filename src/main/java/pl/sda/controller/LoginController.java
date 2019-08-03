@@ -34,9 +34,11 @@ public class LoginController extends HttpServlet {
         if(authenticated){
             String username = req.getParameter("username");
             String password = req.getParameter("pass");
+            req.getSession().setAttribute("username", username);
             req.getSession().setAttribute("isLogin", true);
             resp.sendRedirect("/");
         }else{
+            req.setAttribute("wrongLogin", true);
             req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req,resp);
         }
 

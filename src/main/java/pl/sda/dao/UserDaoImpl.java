@@ -8,9 +8,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class UserDaoImpl implements UserDao {
-    private ArrayList<UserEntity> users = loadMockData();
+    private static ArrayList<UserEntity> users = loadMockData();
 
     @Override
     public void saveUser(UserEntity user) {
@@ -22,7 +23,12 @@ public class UserDaoImpl implements UserDao {
         return users.stream().filter(u -> u.getLogin().equals(login)).findFirst();
     }
 
-    private ArrayList<UserEntity> loadMockData() {
+    @Override
+    public void changeUserPassword(User user, String password) {
+
+    }
+
+    private static ArrayList<UserEntity> loadMockData() {
         ArrayList<UserEntity> users = new ArrayList<>();
         UserEntity u1 = UserEntity.builder()
                 .email("kowalski@gmail.com")

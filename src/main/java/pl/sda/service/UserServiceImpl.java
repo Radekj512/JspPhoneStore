@@ -12,7 +12,6 @@ public class UserServiceImpl implements UserService {
     UserDao userDao = new UserDaoImpl();
     @Override
     public void saveUser(User user) {
-
     }
 
     @Override

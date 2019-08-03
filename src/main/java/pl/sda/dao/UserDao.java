@@ -10,4 +10,6 @@ public interface UserDao {
     void saveUser(UserEntity user);
 
     Optional<UserEntity> findUser(String login);
+
+    void changeUserPassword(User user, String password);
 }

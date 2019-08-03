@@ -5,9 +5,11 @@ import pl.sda.dao.ProductDaoImpl;
 import pl.sda.dao.ProductImageDao;
 import pl.sda.dao.ProductImageDaoImpl;
 import pl.sda.entity.ProductEntity;
+import pl.sda.model.Brand;
 import pl.sda.model.Product;
 
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static pl.sda.mapper.ProductMapper.mapToProduct;
@@ -30,4 +32,8 @@ public class ProductServiceImpl implements ProductService {
         return mapToProduct(productEntity, imagePathForProduct);
     }
 
+    @Override
+    public List<Product> getProductsByBrand(List<Brand> brandList) {
+        return getProducts().stream().filter(p -> brandList.contains(p.getBrand())).collect(Collectors.toList());
+    }
 }
